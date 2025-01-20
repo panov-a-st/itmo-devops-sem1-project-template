@@ -60,7 +60,6 @@ func PricesGET(db *sql.DB) http.HandlerFunc {
                 category,
                 fmt.Sprintf("%.2f", price),
                 createdAt.Format("2006-01-02")}
-            log.Printf("Record: %v", record)
             if err := csvWriter.Write(record); err != nil {
                 log.Printf("Error appending CSV: %v", err)
                 http.Error(w, "Error appending CSV", http.StatusInternalServerError)
@@ -230,10 +229,10 @@ func PricesPOST(db *sql.DB) http.HandlerFunc {
         }
 
         // Send response
-        resp := map[string]interface{}{
-            "total_items":      totalItems,
-            "total_categories": totalCats,
-            "total_price":      totalPrice,
+        resp := TypeResponse {
+            TotalItems:      totalItems,
+            TotalCategories: totalCats,
+            TotalPrice:      totalPrice,
         }
 
         w.Header().Set("Content-Type", "application/json")
