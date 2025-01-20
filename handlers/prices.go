@@ -7,7 +7,7 @@ import (
 
 func PricesGET(db *sql.DB) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
-            http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+            http.Error(w, "Method not allowed1", http.StatusMethodNotAllowed)
     }
 }
 

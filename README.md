@@ -52,7 +52,7 @@ sh ./scripts/tests.sh 1
 ### Примеры запросов
 - Получение zip архива с помощью GET запроса:
 ```bash
-curl -X GET -o ./sample_data/output.zip http://localhost:8080/api/v0/prices
+curl -X GET -o output_test.zip http://localhost:8080/api/v0/prices
 ```
 - Загрузка данных из архива с помощью POST
 ```bash

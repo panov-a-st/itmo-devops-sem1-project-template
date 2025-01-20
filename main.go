@@ -20,11 +20,15 @@ func main() {
     config := loadEnv()
 
     // Init DB
-    models.InitDB(config)
-    defer db.Close()
+    DB, err := models.InitDB(config)
+    if err != nil {
+        log.Fatalf("Failed to initialize database: %v", err)
+    }
+
+    defer DB.Close()
 
     // Register routes
-    router := routes.RegisterRoutes(db)
+    router := routes.RegisterRoutes(DB)
 
     // Start server
     log.Println("Starting server on :8080")

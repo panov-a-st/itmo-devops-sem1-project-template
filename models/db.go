@@ -3,9 +3,10 @@ package models
 import (
     "fmt"
     "database/sql"
+    _ "github.com/lib/pq"
 )
 
-var db *sql.DB
+var DB *sql.DB
 
 func InitDB(config map[string]string) (*sql.DB, error) {
     connStr := fmt.Sprintf(
@@ -17,14 +18,14 @@ func InitDB(config map[string]string) (*sql.DB, error) {
         config["POSTGRES_DB"],
     )
 
-    db, err := sql.Open("postgres", connStr)
+    DB, err := sql.Open("postgres", connStr)
     if err != nil {
         return nil, err
     }
 
-    if err := db.Ping(); err != nil {
+    if err := DB.Ping(); err != nil {
         return nil, err
     }
 
-    return db, err
+    return DB, err
 }
