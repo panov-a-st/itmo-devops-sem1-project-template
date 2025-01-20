@@ -33,7 +33,7 @@ bash ./scripts/prepare.sh
 ```
 4. Запустите локальный сервер
 ```bash
-sh ./scripts/run.sh
+bash ./scripts/run.sh
 ```
 
 ## Тестирование
@@ -41,7 +41,7 @@ sh ./scripts/run.sh
 ### Тестирование API-запросов:
 
 ```bash
-sh ./scripts/tests.sh 1
+bash ./scripts/tests.sh 1
 ```
 
 ### Скрипт `tests.sh` проверяет:
